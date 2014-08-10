@@ -47,27 +47,13 @@ public class SignUpController {
 
     @RequestMapping(value = "signup", method = RequestMethod.POST)
     public String login(@Valid @ModelAttribute SignupForm signupForm, Errors errors, RedirectAttributes ra) {
-        System.out.println(signupForm.getEmail());
-        System.out.println(signupForm.getPassword());
         if (errors.hasErrors()) {
-            System.out.println("ERRORS: " + errors.getAllErrors().toString());
             logger.error(errors.getAllErrors().toString());
             return SIGNUP_VIEW_NAME;
         }
+        accountRepository.save(signupForm.createAccount());
 
-        Account account = accountRepository.findByEmail(signupForm.getEmail());
-        System.out.println("ACCOUNT: " + account);
-        if (account==null){
-            System.out.println("New");
-            accountRepository.save(signupForm.createAccount());
-            userService.signin(account);
-        } else {
-            System.out.println("Already");
-            userService.signin(account);
-        }
-
-        MessageHelper.addSuccessAttribute(ra, "signup.success");
-        System.out.println("HIER RETURN");
+        MessageHelper.addSuccessAttribute(ra, "login.success");
         return "redirect:/";
     }
 }

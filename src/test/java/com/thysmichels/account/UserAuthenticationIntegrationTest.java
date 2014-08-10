@@ -27,7 +27,7 @@ public class UserAuthenticationIntegrationTest extends WebSecurityConfigurationA
 
     @Test
     public void userAuthenticates() throws Exception {
-        final String username = "user@mail.com";
+        final String username = "user";
         ResultMatcher matcher = new ResultMatcher() {
             public void match(MvcResult mvcResult) throws Exception {
                 HttpSession session = mvcResult.getRequest().getSession();
