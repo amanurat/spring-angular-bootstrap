@@ -1,4 +1,4 @@
-spring-angular-bootstrap
+Spring Angular Bootstrap
 ========================
 
 Spring AngularJS Bootstrap
