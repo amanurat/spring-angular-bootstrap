@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="4.855" errors="0" skipped="0" tests="3" name="com.thysmichels.account.UserAuthenticationIntegrationTest">
+<testsuite failures="0" time="5.061" errors="0" skipped="0" tests="3" name="com.thysmichels.account.UserAuthenticationIntegrationTest">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.7.0_55.jdk/Contents/Home/jre/lib"/>
@@ -62,7 +62,7 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase time="4.826" classname="com.thysmichels.account.UserAuthenticationIntegrationTest" name="userAuthenticates"/>
-  <testcase time="0.013" classname="com.thysmichels.account.UserAuthenticationIntegrationTest" name="requiresAuthentication"/>
-  <testcase time="0.016" classname="com.thysmichels.account.UserAuthenticationIntegrationTest" name="userAuthenticationFails"/>
+  <testcase time="5.031" classname="com.thysmichels.account.UserAuthenticationIntegrationTest" name="userAuthenticates"/>
+  <testcase time="0.017" classname="com.thysmichels.account.UserAuthenticationIntegrationTest" name="requiresAuthentication"/>
+  <testcase time="0.013" classname="com.thysmichels.account.UserAuthenticationIntegrationTest" name="userAuthenticationFails"/>
 </testsuite>
