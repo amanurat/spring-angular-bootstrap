@@ -8,7 +8,6 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import javax.inject.Inject;
 import javax.sql.DataSource;
 
 /**
@@ -17,7 +16,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableTransactionManagement
-@Import({DefaultDataSourceConfig.class})
+@Import({DataSourceConfigImpl.class})
 public class JdbcConfig {
 
     @Bean

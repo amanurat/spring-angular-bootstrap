@@ -1,8 +1,10 @@
 package com.thysmichels.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -16,8 +18,12 @@ import java.util.Properties;
  */
 @Configuration
 @EnableTransactionManagement
-@Import({DefaultDataSourceConfig.class})
+@Import({DataSourceConfigImpl.class})
+@PropertySource("classpath:/services.properties")
 public class HibernateConfig {
+
+    @Value("${hibernate.dialect}")
+    private String dialect;
 
     @Bean
     public LocalSessionFactoryBean setupSessionFactory(DataSource dataSource) throws Exception {
@@ -25,7 +31,7 @@ public class HibernateConfig {
         localSessionFactory.setDataSource(dataSource);
         localSessionFactory.setPackagesToScan("com.thysmichels.model");
         Properties hibernateProperties = new Properties();
-        hibernateProperties.setProperty("dialect", "org.hibernate.dialect.PostgreSQLDialect");
+        hibernateProperties.setProperty("dialect", dialect);
         localSessionFactory.setHibernateProperties(hibernateProperties);
         return localSessionFactory;
     }

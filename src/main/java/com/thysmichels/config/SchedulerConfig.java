@@ -13,5 +13,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 public class SchedulerConfig {
 
     @Scheduled(fixedRate = 1000)
-    public void task(){}
+    public void task(){
+
+    }
 }
